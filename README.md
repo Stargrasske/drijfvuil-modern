@@ -60,6 +60,11 @@ corepack yarn install --immutable
 corepack yarn check
 ```
 
+The CI workflow uses `.node-version` and the Yarn version pinned in
+`package.json`. It installs dependencies with `corepack yarn install --immutable`
+and runs `corepack yarn check` (type checks, lint, tests and both builds) on
+pushes and pull requests to `main`. It does not use npm or Webpack.
+
 Two terminals, both in this directory:
 
 ```powershell
