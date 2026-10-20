@@ -65,6 +65,15 @@ The CI workflow uses `.node-version` and the Yarn version pinned in
 and runs `corepack yarn check` (type checks, lint, tests and both builds) on
 pushes and pull requests to `main`. It does not use npm or Webpack.
 
+The GitHub Pages workflow builds the Vite frontend with the Pages base path
+and uploads only `dist/web`, including its generated `index.html` and assets.
+The default project URL is `https://stargrasske.github.io/drijfvuil-modern/`,
+not the account root. Select **GitHub Actions** as the Pages source in the
+repository settings. Pages serves static files only: it cannot run the Nest
+API or Vite's development proxy. Reports, photos and authentication require
+a separately hosted API with appropriate routing; this workflow does not
+deploy a working full-stack demo.
+
 Two terminals, both in this directory:
 
 ```powershell
