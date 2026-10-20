@@ -1,0 +1,65 @@
+{
+  "name": "drijfvuil-modern",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "nx": {
+    "includedScripts": []
+  },
+  "license": "MIT",
+  "packageManager": "yarn@4.18.1",
+  "engines": {
+    "node": ">=24.19.0 <25"
+  },
+  "scripts": {
+    "dev": "nx run web:serve",
+    "dev:api": "nx run api:serve",
+    "migration:run": "node dist/api/apps/api/src/migration-cli.js up",
+    "migration:revert": "node dist/api/apps/api/src/migration-cli.js down",
+    "build": "nx run-many -t build --parallel=2 --output-style=static",
+    "test": "nx run checks:test --output-style=static",
+    "lint": "nx run checks:lint --output-style=static",
+    "typecheck": "nx run-many -t typecheck --parallel=2 --output-style=static",
+    "check": "yarn typecheck && yarn lint && yarn test && yarn build"
+  },
+  "dependencies": {
+    "@apollo/server": "5.5.1",
+    "@as-integrations/express5": "1.1.2",
+    "@nestjs/apollo": "14.0.3",
+    "@nestjs/common": "12.1.3",
+    "@nestjs/core": "12.1.3",
+    "@nestjs/graphql": "14.0.3",
+    "@nestjs/platform-express": "12.1.3",
+    "express": "5.1.0",
+    "graphql": "16.12.0",
+    "leaflet": "1.9.4",
+    "pg": "8.23.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-leaflet": "5.0.0",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2",
+    "typeorm": "1.1.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.8",
+    "@types/leaflet": "1.9.22",
+    "@types/node": "24.10.1",
+    "@types/pg": "8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "eslint": "10.12.0",
+    "globals": "17.13.0",
+    "jsdom": "30.1.3",
+    "nx": "23.3.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.2",
+    "vite": "8.3.4",
+    "vitest": "5.0.4"
+  }
+}
